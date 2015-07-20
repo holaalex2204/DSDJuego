@@ -7,7 +7,7 @@ int potenciaBala =10;
 Game::Game(int numFig){
 	numAsteroides=numFig;
 	SDL_Init(SDL_INIT_EVERYTHING);
-	window = SDL_CreateWindow("Poligonos Regulares", 250, 0, 800, 600, 0);
+	window = SDL_CreateWindow("Proyecto Final", 250, 0, 800, 600, 0);
 	renderer = SDL_CreateRenderer(window, -1, 0);
 }
 
@@ -18,11 +18,9 @@ Game::~Game(){
 void Game::init(){
 	frames=0;
 	asteroides.clear();
-
 	for(int i=0 ; i<N_FIGURAS ; i++){
 		asteroides.push_back(9+rand()%15);
-	}
-
+	} 
 	p[N_FIGURAS+2];
 	ejecutandose=true;
 	start_time = SDL_GetTicks();
@@ -83,7 +81,7 @@ void Game::update(){
 	}
 	for(int i=0; i < N_FIGURAS; ++i) {		
 		asteroides[i].mover();
-	}
+	} 
 
 	//printf("%d - ",(int)asteroides.size());
 	for(int i=0 ; i<(int)asteroides.size() ; i++){
@@ -136,13 +134,11 @@ void Game::update(){
 			}
 		}
 	}
-
 	while(N_FIGURAS<numAsteroides){
 		asteroides.push_back(9+rand()%15);
 		//asteroides.emplace_back(5+rand()%15);
 		N_FIGURAS++;
 	}
-
 	nave1.setX(movX);
 	nave1.setY(movY);
 }
